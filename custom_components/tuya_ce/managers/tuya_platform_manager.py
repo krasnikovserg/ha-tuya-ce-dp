@@ -4,7 +4,7 @@ from collections.abc import Callable
 import logging
 import sys
 from typing import Any
-
+from dataclasses import field
 from tuya_iot import TuyaDeviceManager
 
 from homeassistant.components.alarm_control_panel import (
@@ -29,7 +29,7 @@ from homeassistant.helpers.entity import EntityDescription
 
 from .. import PLATFORMS
 from ..helpers.const import PLATFORM_FIELDS
-from ..models.color_type_data import ColorTypes
+from ..models.color_type_data import ColorTypeData
 from ..models.platform_details import PlatformDetails
 
 _LOGGER = logging.getLogger(__name__)
@@ -145,7 +145,7 @@ class TuyaPlatformManager:
     @staticmethod
     def _get_entity_description_defaults() -> dict[str, Any]:
         entity_description_defaults = {
-            "default_color_type": ColorTypes.v1,
+            "default_color_type": field(default_factory = lambda: DEFAULT_COLOR_TYPE_DATA),
             "open_instruction_value": "open",
             "close_instruction_value": "close",
             "stop_instruction_value": "stop",
