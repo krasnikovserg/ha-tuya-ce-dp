@@ -1,4 +1,20 @@
 {
+    "3towulqd": {
+        "binary_sensor": [
+            {  
+                "key": "pir_state",
+                "device_class": "motion",
+                "on_value": "pir"
+            },
+            {
+                "key": "illuminance_value",
+                "device_class": "illuminance",
+                "entity_category": "diagnostic",
+                "name": "illuminance_value",
+                "on_value": true
+            }
+        ]
+    },
     "infrared_ac": {
         "switch": [
             {
