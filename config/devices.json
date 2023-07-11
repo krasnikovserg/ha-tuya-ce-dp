@@ -1,6 +1,6 @@
 {
     "3towulqd": {
-        "binary_sensor": [
+        "status_range": [
             {  
                 "key": "pir_state",
                 "device_class": "motion",
